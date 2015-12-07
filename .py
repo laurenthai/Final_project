@@ -39,6 +39,15 @@ def translate(phrase, ciphertext_alphabet):
 			newphrase.append(encrypt_letter(item))
 	return "".join(newphrase)
 	
+def phrase_into_num(phrase):
+    num_alphabet = []
+    for item in phrase:
+        if item == " ":
+            num_alphabet.append(26)
+        else:
+            num_alphabet.append(alphabet.index(item))
+    return int(''.join(map(str,num_alphabet)))
+	
 key = raw_input("Please choose an encryption key. Key can only contain letters: ")
 while valid_key(key) == False:
 	key = raw_input("Key can only contain letters, try again: ")
